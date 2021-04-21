@@ -69,7 +69,7 @@ int main() {
 	insert(40); // head->10->20->30->40->NULL
 	insert(50); // head->10->20->30->40->50->NULL
 	print();
-    insertAtPosition(25,7);
+    insertAtPosition(25,3);
     cout<<endl;
     print();
 	return 0;
