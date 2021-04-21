@@ -1,84 +1,76 @@
+// A program to create a linked list
+// insertion of element is done at last position in O(1)
 #include <bits/stdc++.h>
 using namespace std;
 
-
-class List{
+struct Node{
+  int data;
+  struct Node *next;
     
-    private:
-    struct Node{
-    int data;
-    struct Node *next;
-        
-    };
-    struct Node *head = NULL;
-    struct Node *last = NULL;
-    public:
-    void append(int x){
-        // inserting in the first position
-        struct Node *tmp = (struct Node*) malloc(sizeof(struct Node));
-        tmp->data = x;
-        tmp->next = NULL;
+};
+struct Node *head = NULL;
+struct Node *last = NULL;
+
+void insert(int x){
+    // allocating memory for the node
+    struct Node *tmp = (struct Node*) malloc(sizeof(struct Node));
+    // inserting x in tmp and its next is pointing to NULL
+    tmp->data = x;
+    tmp->next = NULL;
+    // inserting first element, head and last pointer will be pointing to the first element
+    if(head == NULL){
+        head = tmp;
+        last = tmp;
+    }
+    // inserting two or more node, head will be pointing to the first element,
+    // while last pointer will be pointing to the last element inserted 
+    else{
         last->next = tmp;
         last = last->next;
     }
-    void print(){
-        struct Node *ptr = head->next;
-        while(ptr!=NULL){
-            cout<<ptr->data<<"->";
+}
+
+void insertAtPosition(int x, int pos){
+    struct Node *ptr = head;
+    struct Node *prev = head;
+    struct Node *tmp = new Node;
+    tmp->data = x;
+    tmp->next = NULL;
+    int cnt = 1;
+    if(pos == 1){
+        tmp->next = head;
+        head = tmp;
+    }else{
+        while(cnt!=pos){
+            prev = ptr;
             ptr = ptr->next;
+            cnt++;
         }
+        tmp->next = ptr;
+        prev->next = tmp;
     }
     
-};
-List::List(){
-        struct Node *tmp = (struct Node*) malloc(sizeof(struct Node));
-        tmp->data = 666;
-        tmp->next = NULL;
-        head = tmp;
-        last = tmp;
-        
-    }
 
-// void insert(int x);
-// void print();
-// void reverse();
+}
+
+void print(){
+    struct Node *ptr = head;
+    while(ptr!=NULL){
+        cout<<ptr->data<<"->";
+        ptr = ptr->next;
+    }
+}
 
 
 int main() {
-    List l1 = new List;
-	// insert(10);
-	// insert(20);
-	// insert(30);
-	// insert(40);
-	// insert(50);
-	// print();
+	insert(10); // head->10->NULL
+	insert(20); // head->10->20->NULL
+	insert(30); // head->10->20->30->NULL
+	insert(40); // head->10->20->30->40->NULL
+	insert(50); // head->10->20->30->40->50->NULL
+	print();
+    insertAtPosition(25,7);
+    cout<<endl;
+    print();
 	return 0;
 }
-
-// void insert(int x){
-//     // inserting in the last position in O(1)
-//     struct Node *tmp = (struct Node*) malloc(sizeof(struct Node));
-//     if(head == NULL){
-//         tmp->data = x;
-//         tmp->next = NULL;
-//         head = tmp;
-//         last = tmp;
-//     }
-//     else{
-//         tmp->data = x;
-//         tmp->next = NULL;
-//         last->next = tmp;
-//         last = last->next;
-//     }
-// }
-
-// void print(){
-//     struct Node *ptr = head;
-//     while(ptr!=NULL){
-//         cout<<ptr->data<<"->";
-//         ptr = ptr->next;
-//     }
-// }
-// void reverse(){
-    
-// }
