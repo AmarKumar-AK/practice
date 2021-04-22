@@ -1,4 +1,4 @@
-// A program to create a linked list
+// A program to insert an element at specified position
 // insertion of element is done at last position in O(1)
 #include <bits/stdc++.h>
 using namespace std;

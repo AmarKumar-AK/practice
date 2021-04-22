@@ -1,4 +1,4 @@
-// A program to create a linked list
+// A program to add two linked list
 // insertion of element is done at first position
 #include <bits/stdc++.h>
 using namespace std;
