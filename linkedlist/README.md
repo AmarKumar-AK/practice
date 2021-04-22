@@ -5,4 +5,4 @@
 #### linkedlist5.cpp - creating linked list and then adding element at specified position
 #### linkedlist6.cpp - addition of two linked list(used already created insert function)
 #### linkedlist7.cpp - addition of two linked list(didn't use already created insert function)
-#### linkedlist8.cpp - merging of two sorted linked list
+#### linkedlist8.cpp - merging of two sorted linked list(used already created insert function)
